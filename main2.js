@@ -1,5 +1,59 @@
 $(document).ready(function() {
     
+    var modal = document.querySelector(".modal");
+    var trigger = document.querySelector(".trigger");
+    var closeButton = document.querySelector(".close-button");
+
+    function toggleModal() {
+        modal.classList.toggle("show-modal");
+    }
+
+    function windowOnClick(event) {
+        if (event.target === modal) {
+            toggleModal();
+        }
+    }
+
+    trigger.addEventListener("click", toggleModal);
+    closeButton.addEventListener("click", toggleModal);
+    window.addEventListener("click", windowOnClick);
+    
+    var modal2 = document.querySelector(".modal2");
+    var trigger2 = document.querySelector(".trigger2");
+    var closeButton2 = document.querySelector(".close-button2");
+
+    function toggleModal2() {
+        modal2.classList.toggle("show-modal");
+    }
+
+    function windowOnClick2(event) {
+        if (event.target === modal2) {
+            toggleModal2();
+        }
+    }
+
+    trigger2.addEventListener("click", toggleModal2);
+    closeButton2.addEventListener("click", toggleModal2);
+    window.addEventListener("click", windowOnClick2);
+    
+    var modal3 = document.querySelector(".modal3");
+    var trigger3 = document.querySelector(".trigger3");
+    var closeButton3 = document.querySelector(".close-button3");
+
+    function toggleModal3() {
+        modal3.classList.toggle("show-modal");
+    }
+
+    function windowOnClick3(event) {
+        if (event.target === modal3) {
+            toggleModal3();
+        }
+    }
+
+    trigger3.addEventListener("click", toggleModal3);
+    closeButton3.addEventListener("click", toggleModal3);
+    window.addEventListener("click", windowOnClick3);
+    
     //saved texts and images for final output
     
     //for text
@@ -51,11 +105,13 @@ $(document).ready(function() {
     
     var cityArray = ["images/baghdad", "images/bangkok", "images/istanbul", "images/london", "images/mumbai", "images/pyongYang", "images/saintPetersburg", "images/saoPaulo", "images/shenZhen", "images/tianJin", "images/berlin", "images/busan", "images/capetown", "images/losAngeles", "images/madrid", "images/mexicoCity", "images/nairobi", "images/newYork", "images/singapore", "images/yokohama"]
     
-    var typeButtonArray = ["trespass", "trespass", "fly", "fly", "die", "die", "compete", "compete", "wander", "wander", "work", "work", "graze", "graze", "drive", "drive", "waste", "waste", "park", "park", "play", "play", "swim", "swim", "sail", "sail", "live", "live", "ride", "ride"]
+    var typeButtonArray = ["TRESPASS", "TRESPASS", "FLY", "FLY", "DIE", "DIE", "COMPETE", "COMPETE", "WANDER", "WANDER", "WORK", "WORK", "GRAZE", "GRAZE", "DRIVE", "DRIVE", "WASTE", "WASTE", "PARK", "PARK", "PLAY", "PLAY", "SWIM", "SWIM", "SAIL", "SAIL", "LIVE", "LIVE", "RIDE", "RIDE"]
     
-    var verbArray = ["Trespass", "Trespass", "Fly", "Fly", "Die", "Die", "Compete", "Compete", "Wander", "Wander", "Work", "Work", "Graze", "Graze", "Drive", "Drive", "Waste", "Waste", "Park", "Park", "Play", "Play", "Swim", "Swim", "Sail", "Sail", "Live", "Live", "Ride", "Ride"]
+    var verbArray = ["TRESPASS", "TRESPASS", "FLY", "FLY", "DIE", "DIE", "COMPETE", "COMPETE", "WANDER", "WANDER", "WORK", "WORK", "GRAZE", "GRAZE", "DRIVE", "DRIVE", "WASTE", "WASTE", "PARK", "PARK", "PLAY", "PLAY", "SWIM", "SWIM", "SAIL", "SAIL", "LIVE", "LIVE", "RIDE", "RIDE"]
     
-    var cityNameArray = ["Baghdad, Iraq", "Bangkok, Thailand", "Istanbul, Turkey", "London, England", "Mumbai, India", "Pyongyang, North Korea", "Saint Petersburg, Russia", "Sao Paulo, Brazil", "Shenzhen, China", "Tianjin, China", "Berlin, Germany", "Busan, South Korea", "Cape Town, South Africa", "Los Angeles, United States", "Madrid, Spain", "Mexico City, Mexico", "Nairobi, Kenya", "New York, United States", "Singapore, Singapore", "Yokohama, Japan"]
+    var cityNameArray = ["BAGHDAD, IRAQ", "BANGKOK, THAILAND", "ISTANBUL, TURKEY", "LONDON, ENGLAND", "MUMBAI, INDIA", "PYONGYANG, NORTH KOREA", "SAINT PETERSBURG, RUSSIA", "SAO PAULO, BRAZIL", "SHENZHEN, CHINA", "TIANJIN, CHINA", "BERLIN, GERMANY", "BUSAN, SOUTH KOREA", "CAPE TOWN, SOUTH AFRICA", "LOS ANGELES, UNITED STATES", "MADRID, SPAIN", "MEXICO CITY, MEXICO", "NAIROBI, KENYA", "NEW YORK, UNITED STATES", "SINGAPORE, SINGAPORE", "YOKOHAMA, JAPAN"]
+    
+    var endcityNameArray = ["BAGHDAD", "BANGKOK", "ISTANBUL", "LONDON", "MUMBAI", "PYONGYANG", "SAINT PETERSBURG", "SAO PAULO", "SHENZHEN", "TIANJIN", "BERLIN", "BUSAN", "CAPE TOWN", "LOS ANGELES", "MADRID", "MEXICO CITY", "NAIROBI", "NEW YORK", "SINGAPORE", "YOKOHAMA"]
     
     //random variables at start of code
     
@@ -126,7 +182,7 @@ $(document).ready(function() {
         
         $(".left, .right, .middle").hover(function() {
           $("#hover12, #hover3, #hover45, #hover67, #hover8, #hover910").hide();
-          $("#location").empty().append("city, country");
+          $("#location").empty().append("LOCATION");
        });
         
     $("#1").hover(function() {
@@ -819,10 +875,10 @@ $(document).ready(function() {
         outOfTen++;
             $("#outOfTen").empty().append(outOfTen);
             if(outOfTen>10){
-              $("#screenNum").empty().append("("+bigCount+")");
+              $("#screenNum").empty().append(bigCount+" OUT OF 10");
               $("#big").attr("src", savedImage1);    
-              $("#bigText, #big, #restart").show();
-                $("#location").hide();
+              $("#bigText, #big, #restart, #bigTextVerb1, #endtop, #endbottom, .downloadbits").show();    
+              $("#location, .wrapper").hide();
               $("#verb1").empty().append(savedVerb1);
               $("#verb2").empty().append(savedVerb2);
               $("#verb3").empty().append(savedVerb3);
@@ -842,7 +898,8 @@ $(document).ready(function() {
               $("#place7").empty().append(savedCity7);
               $("#place8").empty().append(savedCity8);
               $("#place9").empty().append(savedCity9); 
-              $("#place10").empty().append(savedCity10); 
+              $("#place10").empty().append(savedCity10);
+                
               
             }
             $("#1, #2, #3, #4, #5, #6, #7, #8, #9, #10").attr("style", "outline:0px solid white;");
@@ -852,40 +909,60 @@ $(document).ready(function() {
     
     //click on Big to see the images
     
-     $("#big").click(function() {
+     $("#bigTextVerb1").click(function() {
       bigCount++;
-      $("#screenNum").empty().append("("+bigCount+")");
+      $("#screenNum").empty().append(bigCount+" OUT OF 10");
          if(bigCount==2){
-             $("#big").attr("src", savedImage2); 
+             $("#big").attr("src", savedImage2);
+             $("#verb1").empty().append(savedVerb2);
+             $("#place1").empty().append(savedCity2);
          }
          if(bigCount==3){
-             $("#big").attr("src", savedImage3); 
+             $("#big").attr("src", savedImage3);
+             $("#verb1").empty().append(savedVerb3);
+             $("#place1").empty().append(savedCity3);
          }
          if(bigCount==4){
-             $("#big").attr("src", savedImage4); 
+             $("#big").attr("src", savedImage4);
+             $("#verb1").empty().append(savedVerb4);
+             $("#place1").empty().append(savedCity4);
          }
          if(bigCount==5){
-             $("#big").attr("src", savedImage5); 
+             $("#big").attr("src", savedImage5);
+             $("#verb1").empty().append(savedVerb5);
+             $("#place1").empty().append(savedCity5);
          }
          if(bigCount==6){
-             $("#big").attr("src", savedImage6); 
+             $("#big").attr("src", savedImage6);
+             $("#verb1").empty().append(savedVerb6);
+             $("#place1").empty().append(savedCity6);
          }
          if(bigCount==7){
-             $("#big").attr("src", savedImage7); 
+             $("#big").attr("src", savedImage7);
+             $("#verb1").empty().append(savedVerb7);
+             $("#place1").empty().append(savedCity7);
          }
          if(bigCount==8){
-             $("#big").attr("src", savedImage8); 
+             $("#big").attr("src", savedImage8);
+             $("#verb1").empty().append(savedVerb8);
+             $("#place1").empty().append(savedCity8);
          }
          if(bigCount==9){
-             $("#big").attr("src", savedImage9); 
+             $("#big").attr("src", savedImage9);
+             $("#verb1").empty().append(savedVerb9);
+             $("#place1").empty().append(savedCity9);
          }
          if(bigCount==10){
-             $("#big").attr("src", savedImage10); 
+             $("#big").attr("src", savedImage10);
+             $("#verb1").empty().append(savedVerb10);
+             $("#place1").empty().append(savedCity10);
          }
          if(bigCount==11){
              $("#big").attr("src", savedImage1); 
              bigCount=1;
-             $("#screenNum").empty().append("("+1+")");
+             $("#screenNum").empty().append(bigCount+" OUT OF 10");
+             $("#verb1").empty().append(savedVerb1);
+             $("#place1").empty().append(savedCity1);
          }
      });
     
@@ -896,7 +973,7 @@ $(document).ready(function() {
             
           $(".left, .right, .middle").hover(function() {
           $("#hover12, #hover3, #hover45, #hover67, #hover8, #hover910").hide();
-          $("#location").empty().append("city, country");
+          $("#location").empty().append("LOCATION");
        });
         
     $("#1").hover(function() {
@@ -1577,10 +1654,10 @@ $(document).ready(function() {
            outOfTen++;
             $("#outOfTen").empty().append(outOfTen);
             if(outOfTen>10){
-              $("#screenNum").empty().append("("+bigCount+")");
+              $("#screenNum").empty().append(bigCount+" OUT OF 10");
               $("#big").attr("src", savedImage1);    
-              $("#bigText, #big, #restart").show();
-                $("#location").hide();
+              $("#bigText, #big, #restart, #bigTextVerb1, #endtop, #endbottom, .downloadbits").show();
+              $("#location, .wrapper").hide();
               $("#verb1").empty().append(savedVerb1);
               $("#verb2").empty().append(savedVerb2);
               $("#verb3").empty().append(savedVerb3);
@@ -1615,7 +1692,7 @@ $(document).ready(function() {
         
     $(".left, .right, .middle").hover(function() {
           $("#hover12, #hover3, #hover45, #hover67, #hover8, #hover910").hide();
-          $("#location").empty().append("city, country");
+          $("#location").empty().append("LOCATION");
        });
         
     $("#1").hover(function() {
@@ -1786,52 +1863,53 @@ $(document).ready(function() {
           $("#2, #3, #4, #5, #6, #7, #8, #9, #10").attr("style", "outline:0px solid white;");
           if(outOfTen==1){
                 savedVerb1 = verbArray[randomType1];
-                savedCity1 = cityNameArray[randomCity1];
+                savedCity1 = endcityNameArray[randomCity1];
                 savedImage1 = cityArray[randomCity1] + typeArray[randomType1];
           }
           if(outOfTen==2){
                 savedVerb2 = verbArray[randomType1];
-                savedCity2 = cityNameArray[randomCity1];
+                savedCity2 = endcityNameArray[randomCity1];
                 savedImage2 = cityArray[randomCity1] + typeArray[randomType1];
           }
           if(outOfTen==3){
                 savedVerb3 = verbArray[randomType1];
-                savedCity3 = cityNameArray[randomCity1];   
+                savedCity3 = endcityNameArray[randomCity1];   
                 savedImage3 = cityArray[randomCity1] + typeArray[randomType1];
           }
           if(outOfTen==4){
                 savedVerb4 = verbArray[randomType1];
-                savedCity4 = cityNameArray[randomCity1]; 
+                savedCity4 = endcityNameArray[randomCity1]; 
                 savedImage4 = cityArray[randomCity1] + typeArray[randomType1];
           }
           if(outOfTen==5){
                 savedVerb5 = verbArray[randomType1];
-                savedCity5 = cityNameArray[randomCity1]; 
+                savedCity5 = endcityNameArray[randomCity1]; 
                 savedImage5 = cityArray[randomCity1] + typeArray[randomType1];
           }
           if(outOfTen==6){
                 savedVerb6 = verbArray[randomType1];
-                savedCity6 = cityNameArray[randomCity1]; 
+                savedCity6 = endcityNameArray[randomCity1]; 
                 savedImage6 = cityArray[randomCity1] + typeArray[randomType1];
           }if(outOfTen==7){
                 savedVerb7 = verbArray[randomType1];
-                savedCity7 = cityNameArray[randomCity1];
+                savedCity7 = endcityNameArray[randomCity1];
                 savedImage7 = cityArray[randomCity1] + typeArray[randomType1];
           }
           if(outOfTen==8){
                 savedVerb8 = verbArray[randomType1];
-                savedCity8 = cityNameArray[randomCity1]; 
+                savedCity8 = endcityNameArray[randomCity1]; 
                 savedImage8 = cityArray[randomCity1] + typeArray[randomType1];
           }
           if(outOfTen==9){
                 savedVerb9 = verbArray[randomType1];
-                savedCity9 = cityNameArray[randomCity1]; 
+                savedCity9 = endcityNameArray[randomCity1]; 
                 savedImage9 = cityArray[randomCity1] + typeArray[randomType1];
           }
           if(outOfTen==10){
                 savedVerb10 = verbArray[randomType1];
-                savedCity10 = cityNameArray[randomCity1];   
+                savedCity10 = endcityNameArray[randomCity1];   
                 savedImage10 = cityArray[randomCity1] + typeArray[randomType1];
+              
           }        
        });
     
@@ -1846,51 +1924,51 @@ $(document).ready(function() {
           $("#1, #3, #4, #5, #6, #7, #8, #9, #10").attr("style", "outline:0px solid white;");
           if(outOfTen==1){
                 savedVerb1 = verbArray[randomType2];
-                savedCity1 = cityNameArray[randomCity2];
+                savedCity1 = endcityNameArray[randomCity2];
                 savedImage1 = cityArray[randomCity2] + typeArray[randomType2];
           }
           if(outOfTen==2){
                 savedVerb2 = verbArray[randomType2];
-                savedCity2 = cityNameArray[randomCity2];
+                savedCity2 = endcityNameArray[randomCity2];
                 savedImage2 = cityArray[randomCity2] + typeArray[randomType2];
           }
           if(outOfTen==3){
                 savedVerb3 = verbArray[randomType2];
-                savedCity3 = cityNameArray[randomCity2];   
+                savedCity3 = endcityNameArray[randomCity2];   
                 savedImage3 = cityArray[randomCity2] + typeArray[randomType2];
           }
           if(outOfTen==4){
                 savedVerb4 = verbArray[randomType2];
-                savedCity4 = cityNameArray[randomCity2]; 
+                savedCity4 = endcityNameArray[randomCity2]; 
                 savedImage4 = cityArray[randomCity2] + typeArray[randomType2];
           }
           if(outOfTen==5){
                 savedVerb5 = verbArray[randomType2];
-                savedCity5 = cityNameArray[randomCity2]; 
+                savedCity5 = endcityNameArray[randomCity2]; 
                 savedImage5 = cityArray[randomCity2] + typeArray[randomType2];
           }
           if(outOfTen==6){
                 savedVerb6 = verbArray[randomType2];
-                savedCity6 = cityNameArray[randomCity2]; 
+                savedCity6 = endcityNameArray[randomCity2]; 
                 savedImage6 = cityArray[randomCity2] + typeArray[randomType2];
           }if(outOfTen==7){
                 savedVerb7 = verbArray[randomType2];
-                savedCity7 = cityNameArray[randomCity2];
+                savedCity7 = endcityNameArray[randomCity2];
                 savedImage7 = cityArray[randomCity2] + typeArray[randomType2];
           }
           if(outOfTen==8){
                 savedVerb8 = verbArray[randomType2];
-                savedCity8 = cityNameArray[randomCity2]; 
+                savedCity8 = endcityNameArray[randomCity2]; 
                 savedImage8 = cityArray[randomCity2] + typeArray[randomType2];
           }
           if(outOfTen==9){
                 savedVerb9 = verbArray[randomType2];
-                savedCity9 = cityNameArray[randomCity2]; 
+                savedCity9 = endcityNameArray[randomCity2]; 
                 savedImage9 = cityArray[randomCity2] + typeArray[randomType2];
           }
           if(outOfTen==10){
                 savedVerb10 = verbArray[randomType2];
-                savedCity10 = cityNameArray[randomCity2];   
+                savedCity10 = endcityNameArray[randomCity2];   
                 savedImage10 = cityArray[randomCity2] + typeArray[randomType2];
           }
        });
@@ -1905,51 +1983,51 @@ $(document).ready(function() {
           $("#1, #2, #4, #5, #6, #7, #8, #9, #10").attr("style", "outline:0px solid white;");
           if(outOfTen==1){
                 savedVerb1 = verbArray[randomType3];
-                savedCity1 = cityNameArray[randomCity3];
+                savedCity1 = endcityNameArray[randomCity3];
                 savedImage1 = cityArray[randomCity3] + typeArray[randomType3];
           }
           if(outOfTen==2){
                 savedVerb2 = verbArray[randomType3];
-                savedCity2 = cityNameArray[randomCity3];
+                savedCity2 = endcityNameArray[randomCity3];
                 savedImage2 = cityArray[randomCity3] + typeArray[randomType3];
           }
           if(outOfTen==3){
                 savedVerb3 = verbArray[randomType3];
-                savedCity3 = cityNameArray[randomCity3];   
+                savedCity3 = endcityNameArray[randomCity3];   
                 savedImage3 = cityArray[randomCity3] + typeArray[randomType3];
           }
           if(outOfTen==4){
                 savedVerb4 = verbArray[randomType3];
-                savedCity4 = cityNameArray[randomCity3]; 
+                savedCity4 = endcityNameArray[randomCity3]; 
                 savedImage4 = cityArray[randomCity3] + typeArray[randomType3];
           }
           if(outOfTen==5){
                 savedVerb5 = verbArray[randomType3];
-                savedCity5 = cityNameArray[randomCity3]; 
+                savedCity5 = endcityNameArray[randomCity3]; 
                 savedImage5 = cityArray[randomCity3] + typeArray[randomType3];
           }
           if(outOfTen==6){
                 savedVerb6 = verbArray[randomType3];
-                savedCity6 = cityNameArray[randomCity3]; 
+                savedCity6 = endcityNameArray[randomCity3]; 
                 savedImage6 = cityArray[randomCity3] + typeArray[randomType3];
           }if(outOfTen==7){
                 savedVerb7 = verbArray[randomType3];
-                savedCity7 = cityNameArray[randomCity3];
+                savedCity7 = endcityNameArray[randomCity3];
                 savedImage7 = cityArray[randomCity3] + typeArray[randomType3];
           }
           if(outOfTen==8){
                 savedVerb8 = verbArray[randomType3];
-                savedCity8 = cityNameArray[randomCity3]; 
+                savedCity8 = endcityNameArray[randomCity3]; 
                 savedImage8 = cityArray[randomCity3] + typeArray[randomType3];
           }
           if(outOfTen==9){
                 savedVerb9 = verbArray[randomType3];
-                savedCity9 = cityNameArray[randomCity3]; 
+                savedCity9 = endcityNameArray[randomCity3]; 
                 savedImage9 = cityArray[randomCity3] + typeArray[randomType3];
           }
           if(outOfTen==10){
                 savedVerb10 = verbArray[randomType3];
-                savedCity10 = cityNameArray[randomCity3];   
+                savedCity10 = endcityNameArray[randomCity3];   
                 savedImage10 = cityArray[randomCity3] + typeArray[randomType3];
           }
        });
@@ -1964,51 +2042,51 @@ $(document).ready(function() {
           $("#1, #3, #2, #5, #6, #7, #8, #9, #10").attr("style", "outline:0px solid white;");
           if(outOfTen==1){
                 savedVerb1 = verbArray[randomType4];
-                savedCity1 = cityNameArray[randomCity4];
+                savedCity1 = endcityNameArray[randomCity4];
                 savedImage1 = cityArray[randomCity4] + typeArray[randomType4];
           }
           if(outOfTen==2){
                 savedVerb2 = verbArray[randomType4];
-                savedCity2 = cityNameArray[randomCity4];
+                savedCity2 = endcityNameArray[randomCity4];
                 savedImage2 = cityArray[randomCity4] + typeArray[randomType4];
           }
           if(outOfTen==3){
                 savedVerb3 = verbArray[randomType4];
-                savedCity3 = cityNameArray[randomCity4];   
+                savedCity3 = endcityNameArray[randomCity4];   
                 savedImage3 = cityArray[randomCity4] + typeArray[randomType4];
           }
           if(outOfTen==4){
                 savedVerb4 = verbArray[randomType4];
-                savedCity4 = cityNameArray[randomCity4]; 
+                savedCity4 = endcityNameArray[randomCity4]; 
                 savedImage4 = cityArray[randomCity4] + typeArray[randomType4];
           }
           if(outOfTen==5){
                 savedVerb5 = verbArray[randomType4];
-                savedCity5 = cityNameArray[randomCity4]; 
+                savedCity5 = endcityNameArray[randomCity4]; 
                 savedImage5 = cityArray[randomCity4] + typeArray[randomType4];
           }
           if(outOfTen==6){
                 savedVerb6 = verbArray[randomType4];
-                savedCity6 = cityNameArray[randomCity4]; 
+                savedCity6 = endcityNameArray[randomCity4]; 
                 savedImage6 = cityArray[randomCity4] + typeArray[randomType4];
           }if(outOfTen==7){
                 savedVerb7 = verbArray[randomType4];
-                savedCity7 = cityNameArray[randomCity4];
+                savedCity7 = endcityNameArray[randomCity4];
                 savedImage7 = cityArray[randomCity4] + typeArray[randomType4];
           }
           if(outOfTen==8){
                 savedVerb8 = verbArray[randomType4];
-                savedCity8 = cityNameArray[randomCity4]; 
+                savedCity8 = endcityNameArray[randomCity4]; 
                 savedImage8 = cityArray[randomCity4] + typeArray[randomType4];
           }
           if(outOfTen==9){
                 savedVerb9 = verbArray[randomType4];
-                savedCity9 = cityNameArray[randomCity4]; 
+                savedCity9 = endcityNameArray[randomCity4]; 
                 savedImage9 = cityArray[randomCity4] + typeArray[randomType4];
           }
           if(outOfTen==10){
                 savedVerb10 = verbArray[randomType4];
-                savedCity10 = cityNameArray[randomCity4];   
+                savedCity10 = endcityNameArray[randomCity4];   
                 savedImage10 = cityArray[randomCity4] + typeArray[randomType4];
           }
        });
@@ -2023,51 +2101,51 @@ $(document).ready(function() {
           $("#1, #3, #4, #2, #6, #7, #8, #9, #10").attr("style", "outline:0px solid white;");
           if(outOfTen==1){
                 savedVerb1 = verbArray[randomType5];
-                savedCity1 = cityNameArray[randomCity5];
+                savedCity1 = endcityNameArray[randomCity5];
                 savedImage1 = cityArray[randomCity5] + typeArray[randomType5];
           }
           if(outOfTen==2){
                 savedVerb2 = verbArray[randomType5];
-                savedCity2 = cityNameArray[randomCity5];
+                savedCity2 = endcityNameArray[randomCity5];
                 savedImage2 = cityArray[randomCity5] + typeArray[randomType5];
           }
           if(outOfTen==3){
                 savedVerb3 = verbArray[randomType5];
-                savedCity3 = cityNameArray[randomCity5];   
+                savedCity3 = endcityNameArray[randomCity5];   
                 savedImage3 = cityArray[randomCity5] + typeArray[randomType5];
           }
           if(outOfTen==4){
                 savedVerb4 = verbArray[randomType5];
-                savedCity4 = cityNameArray[randomCity5]; 
+                savedCity4 = endcityNameArray[randomCity5]; 
                 savedImage4 = cityArray[randomCity5] + typeArray[randomType5];
           }
           if(outOfTen==5){
                 savedVerb5 = verbArray[randomType5];
-                savedCity5 = cityNameArray[randomCity5]; 
+                savedCity5 = endcityNameArray[randomCity5]; 
                 savedImage5 = cityArray[randomCity5] + typeArray[randomType5];
           }
           if(outOfTen==6){
                 savedVerb6 = verbArray[randomType5];
-                savedCity6 = cityNameArray[randomCity5]; 
+                savedCity6 = endcityNameArray[randomCity5]; 
                 savedImage6 = cityArray[randomCity5] + typeArray[randomType5];
           }if(outOfTen==7){
                 savedVerb7 = verbArray[randomType5];
-                savedCity7 = cityNameArray[randomCity5];
+                savedCity7 = endcityNameArray[randomCity5];
                 savedImage7 = cityArray[randomCity5] + typeArray[randomType5];
           }
           if(outOfTen==8){
                 savedVerb8 = verbArray[randomType5];
-                savedCity8 = cityNameArray[randomCity5]; 
+                savedCity8 = endcityNameArray[randomCity5]; 
                 savedImage8 = cityArray[randomCity5] + typeArray[randomType5];
           }
           if(outOfTen==9){
                 savedVerb9 = verbArray[randomType5];
-                savedCity9 = cityNameArray[randomCity5]; 
+                savedCity9 = endcityNameArray[randomCity5]; 
                 savedImage9 = cityArray[randomCity5] + typeArray[randomType5];
           }
           if(outOfTen==10){
                 savedVerb10 = verbArray[randomType5];
-                savedCity10 = cityNameArray[randomCity5];   
+                savedCity10 = endcityNameArray[randomCity5];   
                 savedImage10 = cityArray[randomCity5] + typeArray[randomType5];
           }
        });
@@ -2082,51 +2160,51 @@ $(document).ready(function() {
           $("#1, #3, #4, #2, #5, #7, #8, #9, #10").attr("style", "outline:0px solid white;");
           if(outOfTen==1){
                 savedVerb1 = verbArray[randomType6];
-                savedCity1 = cityNameArray[randomCity6];
+                savedCity1 = endcityNameArray[randomCity6];
                 savedImage1 = cityArray[randomCity6] + typeArray[randomType6];
           }
           if(outOfTen==2){
                 savedVerb2 = verbArray[randomType6];
-                savedCity2 = cityNameArray[randomCity6];
+                savedCity2 = endcityNameArray[randomCity6];
                 savedImage2 = cityArray[randomCity6] + typeArray[randomType6];
           }
           if(outOfTen==3){
                 savedVerb3 = verbArray[randomType6];
-                savedCity3 = cityNameArray[randomCity6];   
+                savedCity3 = endcityNameArray[randomCity6];   
                 savedImage3 = cityArray[randomCity6] + typeArray[randomType6];
           }
           if(outOfTen==4){
                 savedVerb4 = verbArray[randomType6];
-                savedCity4 = cityNameArray[randomCity6]; 
+                savedCity4 = endcityNameArray[randomCity6]; 
                 savedImage4 = cityArray[randomCity6] + typeArray[randomType6];
           }
           if(outOfTen==5){
                 savedVerb5 = verbArray[randomType6];
-                savedCity5 = cityNameArray[randomCity6]; 
+                savedCity5 = endcityNameArray[randomCity6]; 
                 savedImage5 = cityArray[randomCity6] + typeArray[randomType6];
           }
           if(outOfTen==6){
                 savedVerb6 = verbArray[randomType6];
-                savedCity6 = cityNameArray[randomCity6]; 
+                savedCity6 = endcityNameArray[randomCity6]; 
                 savedImage6 = cityArray[randomCity6] + typeArray[randomType6];
           }if(outOfTen==7){
                 savedVerb7 = verbArray[randomType6];
-                savedCity7 = cityNameArray[randomCity6];
+                savedCity7 = endcityNameArray[randomCity6];
                 savedImage7 = cityArray[randomCity6] + typeArray[randomType6];
           }
           if(outOfTen==8){
                 savedVerb8 = verbArray[randomType6];
-                savedCity8 = cityNameArray[randomCity6]; 
+                savedCity8 = endcityNameArray[randomCity6]; 
                 savedImage8 = cityArray[randomCity6] + typeArray[randomType6];
           }
           if(outOfTen==9){
                 savedVerb9 = verbArray[randomType6];
-                savedCity9 = cityNameArray[randomCity6]; 
+                savedCity9 = endcityNameArray[randomCity6]; 
                 savedImage9 = cityArray[randomCity6] + typeArray[randomType6];
           }
           if(outOfTen==10){
                 savedVerb10 = verbArray[randomType6];
-                savedCity10 = cityNameArray[randomCity6];   
+                savedCity10 = endcityNameArray[randomCity6];   
                 savedImage10 = cityArray[randomCity6] + typeArray[randomType6];
           }
        });
@@ -2141,51 +2219,51 @@ $(document).ready(function() {
           $("#1, #3, #4, #2, #6, #5, #8, #9, #10").attr("style", "outline:0px solid white;");
           if(outOfTen==1){
                 savedVerb1 = verbArray[randomType7];
-                savedCity1 = cityNameArray[randomCity7];
+                savedCity1 = endcityNameArray[randomCity7];
                 savedImage1 = cityArray[randomCity7] + typeArray[randomType7];
           }
           if(outOfTen==2){
                 savedVerb2 = verbArray[randomType7];
-                savedCity2 = cityNameArray[randomCity7];
+                savedCity2 = endcityNameArray[randomCity7];
                 savedImage2 = cityArray[randomCity7] + typeArray[randomType7];
           }
           if(outOfTen==3){
                 savedVerb3 = verbArray[randomType7];
-                savedCity3 = cityNameArray[randomCity7];   
+                savedCity3 = endcityNameArray[randomCity7];   
                 savedImage3 = cityArray[randomCity7] + typeArray[randomType7];
           }
           if(outOfTen==4){
                 savedVerb4 = verbArray[randomType7];
-                savedCity4 = cityNameArray[randomCity7]; 
+                savedCity4 = endcityNameArray[randomCity7]; 
                 savedImage4 = cityArray[randomCity7] + typeArray[randomType7];
           }
           if(outOfTen==5){
                 savedVerb5 = verbArray[randomType7];
-                savedCity5 = cityNameArray[randomCity7]; 
+                savedCity5 = endcityNameArray[randomCity7]; 
                 savedImage5 = cityArray[randomCity7] + typeArray[randomType7];
           }
           if(outOfTen==6){
                 savedVerb6 = verbArray[randomType7];
-                savedCity6 = cityNameArray[randomCity7]; 
+                savedCity6 = endcityNameArray[randomCity7]; 
                 savedImage6 = cityArray[randomCity7] + typeArray[randomType7];
           }if(outOfTen==7){
                 savedVerb7 = verbArray[randomType7];
-                savedCity7 = cityNameArray[randomCity7];
+                savedCity7 = endcityNameArray[randomCity7];
                 savedImage7 = cityArray[randomCity7] + typeArray[randomType7];
           }
           if(outOfTen==8){
                 savedVerb8 = verbArray[randomType7];
-                savedCity8 = cityNameArray[randomCity7]; 
+                savedCity8 = endcityNameArray[randomCity7]; 
                 savedImage8 = cityArray[randomCity7] + typeArray[randomType7];
           }
           if(outOfTen==9){
                 savedVerb9 = verbArray[randomType7];
-                savedCity9 = cityNameArray[randomCity7]; 
+                savedCity9 = endcityNameArray[randomCity7]; 
                 savedImage9 = cityArray[randomCity7] + typeArray[randomType7];
           }
           if(outOfTen==10){
                 savedVerb10 = verbArray[randomType7];
-                savedCity10 = cityNameArray[randomCity7];   
+                savedCity10 = endcityNameArray[randomCity7];   
                 savedImage10 = cityArray[randomCity7] + typeArray[randomType7];
           }
        });
@@ -2200,51 +2278,51 @@ $(document).ready(function() {
           $("#1, #3, #4, #2, #6, #7, #5, #9, #10").attr("style", "outline:0px solid white;");
           if(outOfTen==1){
                 savedVerb1 = verbArray[randomType8];
-                savedCity1 = cityNameArray[randomCity8];
+                savedCity1 = endcityNameArray[randomCity8];
                 savedImage1 = cityArray[randomCity8] + typeArray[randomType8];
           }
           if(outOfTen==2){
                 savedVerb2 = verbArray[randomType8];
-                savedCity2 = cityNameArray[randomCity8];
+                savedCity2 = endcityNameArray[randomCity8];
                 savedImage2 = cityArray[randomCity8] + typeArray[randomType8];
           }
           if(outOfTen==3){
                 savedVerb3 = verbArray[randomType8];
-                savedCity3 = cityNameArray[randomCity8];   
+                savedCity3 = endcityNameArray[randomCity8];   
                 savedImage3 = cityArray[randomCity8] + typeArray[randomType8];
           }
           if(outOfTen==4){
                 savedVerb4 = verbArray[randomType8];
-                savedCity4 = cityNameArray[randomCity8]; 
+                savedCity4 = endcityNameArray[randomCity8]; 
                 savedImage4 = cityArray[randomCity8] + typeArray[randomType8];
           }
           if(outOfTen==5){
                 savedVerb5 = verbArray[randomType8];
-                savedCity5 = cityNameArray[randomCity8]; 
+                savedCity5 = endcityNameArray[randomCity8]; 
                 savedImage5 = cityArray[randomCity8] + typeArray[randomType8];
           }
           if(outOfTen==6){
                 savedVerb6 = verbArray[randomType8];
-                savedCity6 = cityNameArray[randomCity8]; 
+                savedCity6 = endcityNameArray[randomCity8]; 
                 savedImage6 = cityArray[randomCity8] + typeArray[randomType8];
           }if(outOfTen==7){
                 savedVerb7 = verbArray[randomType8];
-                savedCity7 = cityNameArray[randomCity8];
+                savedCity7 = endcityNameArray[randomCity8];
                 savedImage7 = cityArray[randomCity8] + typeArray[randomType8];
           }
           if(outOfTen==8){
                 savedVerb8 = verbArray[randomType8];
-                savedCity8 = cityNameArray[randomCity8]; 
+                savedCity8 = endcityNameArray[randomCity8]; 
                 savedImage8 = cityArray[randomCity8] + typeArray[randomType8];
           }
           if(outOfTen==9){
                 savedVerb9 = verbArray[randomType8];
-                savedCity9 = cityNameArray[randomCity8]; 
+                savedCity9 = endcityNameArray[randomCity8]; 
                 savedImage9 = cityArray[randomCity8] + typeArray[randomType8];
           }
           if(outOfTen==10){
                 savedVerb10 = verbArray[randomType8];
-                savedCity10 = cityNameArray[randomCity8];   
+                savedCity10 = endcityNameArray[randomCity8];   
                 savedImage10 = cityArray[randomCity8] + typeArray[randomType8];
           }
        });
@@ -2259,51 +2337,51 @@ $(document).ready(function() {
           $("#1, #3, #4, #2, #6, #7, #8, #5, #10").attr("style", "outline:0px solid white;");
           if(outOfTen==1){
                 savedVerb1 = verbArray[randomType9];
-                savedCity1 = cityNameArray[randomCity9];
+                savedCity1 = endcityNameArray[randomCity9];
                 savedImage1 = cityArray[randomCity9] + typeArray[randomType9];
           }
           if(outOfTen==2){
                 savedVerb2 = verbArray[randomType9];
-                savedCity2 = cityNameArray[randomCity9];
+                savedCity2 = endcityNameArray[randomCity9];
                 savedImage2 = cityArray[randomCity9] + typeArray[randomType9];
           }
           if(outOfTen==3){
                 savedVerb3 = verbArray[randomType9];
-                savedCity3 = cityNameArray[randomCity9];   
+                savedCity3 = endcityNameArray[randomCity9];   
                 savedImage3 = cityArray[randomCity9] + typeArray[randomType9];
           }
           if(outOfTen==4){
                 savedVerb4 = verbArray[randomType9];
-                savedCity4 = cityNameArray[randomCity9]; 
+                savedCity4 = endcityNameArray[randomCity9]; 
                 savedImage4 = cityArray[randomCity9] + typeArray[randomType9];
           }
           if(outOfTen==5){
                 savedVerb5 = verbArray[randomType9];
-                savedCity5 = cityNameArray[randomCity9]; 
+                savedCity5 = endcityNameArray[randomCity9]; 
                 savedImage5 = cityArray[randomCity9] + typeArray[randomType9];
           }
           if(outOfTen==6){
                 savedVerb6 = verbArray[randomType9];
-                savedCity6 = cityNameArray[randomCity9]; 
+                savedCity6 = endcityNameArray[randomCity9]; 
                 savedImage6 = cityArray[randomCity9] + typeArray[randomType9];
           }if(outOfTen==7){
                 savedVerb7 = verbArray[randomType9];
-                savedCity7 = cityNameArray[randomCity9];
+                savedCity7 = endcityNameArray[randomCity9];
                 savedImage7 = cityArray[randomCity9] + typeArray[randomType9];
           }
           if(outOfTen==8){
                 savedVerb8 = verbArray[randomType9];
-                savedCity8 = cityNameArray[randomCity9]; 
+                savedCity8 = endcityNameArray[randomCity9]; 
                 savedImage8 = cityArray[randomCity9] + typeArray[randomType9];
           }
           if(outOfTen==9){
                 savedVerb9 = verbArray[randomType9];
-                savedCity9 = cityNameArray[randomCity9]; 
+                savedCity9 = endcityNameArray[randomCity9]; 
                 savedImage9 = cityArray[randomCity9] + typeArray[randomType9];
           }
           if(outOfTen==10){
                 savedVerb10 = verbArray[randomType9];
-                savedCity10 = cityNameArray[randomCity9];   
+                savedCity10 = endcityNameArray[randomCity9];   
                 savedImage10 = cityArray[randomCity9] + typeArray[randomType9];
           }
        });
@@ -2318,51 +2396,51 @@ $(document).ready(function() {
           $("#1, #3, #4, #2, #6, #7, #8, #9, #5").attr("style", "outline:0px solid white;");
           if(outOfTen==1){
                 savedVerb1 = verbArray[randomType10];
-                savedCity1 = cityNameArray[randomCity10];
+                savedCity1 = endcityNameArray[randomCity10];
                 savedImage1 = cityArray[randomCity10] + typeArray[randomType10];
           }
           if(outOfTen==2){
                 savedVerb2 = verbArray[randomType10];
-                savedCity2 = cityNameArray[randomCity10];
+                savedCity2 = endcityNameArray[randomCity10];
                 savedImage2 = cityArray[randomCity10] + typeArray[randomType10];
           }
           if(outOfTen==3){
                 savedVerb3 = verbArray[randomType10];
-                savedCity3 = cityNameArray[randomCity10];   
+                savedCity3 = endcityNameArray[randomCity10];   
                 savedImage3 = cityArray[randomCity10] + typeArray[randomType10];
           }
           if(outOfTen==4){
                 savedVerb4 = verbArray[randomType10];
-                savedCity4 = cityNameArray[randomCity10]; 
+                savedCity4 = endcityNameArray[randomCity10]; 
                 savedImage4 = cityArray[randomCity10] + typeArray[randomType10];
           }
           if(outOfTen==5){
                 savedVerb5 = verbArray[randomType10];
-                savedCity5 = cityNameArray[randomCity10]; 
+                savedCity5 = endcityNameArray[randomCity10]; 
                 savedImage5 = cityArray[randomCity10] + typeArray[randomType10];
           }
           if(outOfTen==6){
                 savedVerb6 = verbArray[randomType10];
-                savedCity6 = cityNameArray[randomCity10]; 
+                savedCity6 = endcityNameArray[randomCity10]; 
                 savedImage6 = cityArray[randomCity10] + typeArray[randomType10];
           }if(outOfTen==7){
                 savedVerb7 = verbArray[randomType10];
-                savedCity7 = cityNameArray[randomCity10];
+                savedCity7 = endcityNameArray[randomCity10];
                 savedImage7 = cityArray[randomCity10] + typeArray[randomType10];
           }
           if(outOfTen==8){
                 savedVerb8 = verbArray[randomType10];
-                savedCity8 = cityNameArray[randomCity10]; 
+                savedCity8 = endcityNameArray[randomCity10]; 
                 savedImage8 = cityArray[randomCity10] + typeArray[randomType10];
           }
           if(outOfTen==9){
                 savedVerb9 = verbArray[randomType10];
-                savedCity9 = cityNameArray[randomCity10]; 
+                savedCity9 = endcityNameArray[randomCity10]; 
                 savedImage9 = cityArray[randomCity10] + typeArray[randomType10];
           }
           if(outOfTen==10){
                 savedVerb10 = verbArray[randomType10];
-                savedCity10 = cityNameArray[randomCity10];   
+                savedCity10 = endcityNameArray[randomCity10];   
                 savedImage10 = cityArray[randomCity10] + typeArray[randomType10];
           }
        });

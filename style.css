@@ -14,18 +14,18 @@ body {
     position:fixed;
     top: 13px;
     left: 45.95%;
-    font-size: 1.5vw;
+    font-size: 1.25vw;
     color:white;
     text-align: center;
     font-family: neuehaas;
     letter-spacing: 0.1vh;
 }
 
-.footer {
+.footer, #restart {
 
     font-family: neuehaas;
     color: white;
-    font-size: 1.5vw;
+    font-size: 1.25vw;
 }
 
 
@@ -56,7 +56,7 @@ body {
 .wrapper {
     display:grid;
     grid-template-columns:1fr 1fr 1fr;
-    grid-template-rows: 37.8vh 1fr 37.8vh;
+    grid-template-rows: 37.8vh 1fr 37.8vh; 
 }
 
 img {
@@ -94,7 +94,7 @@ img, #type, #city:hover{
 .middle{
     font-family: neuehaas;
     color: white;
-    font-size: 1.5vw;
+    font-size: 1.25vw;
     align-self: center;
     justify-content: center;
     height:100%;
@@ -114,20 +114,25 @@ img, #type, #city:hover{
 }
 
 #big{
-    width:34%;
-    position:fixed;
-    left:33%;
-    top:20%;
+     max-height: 100%;  
+    max-width: 100%; 
+    width:26vw;
+    height: auto;
+    position: absolute;  
+    top: 0;  
+    bottom: 0;  
+    left: 0;  
+    right: 0;  
+    margin: auto;
     display:none;
-    outline: 1px solid white;
     
 }
 
 #bigText{
     color:white;
     font-family: neuehaas;
-    font-size: 15px;
-    width:17%;
+    font-size: 1.25vw;
+    width:25%;
     position:fixed;
     left:20px;
     bottom:20px;
@@ -138,6 +143,204 @@ img, #type, #city:hover{
 
 a{
     color:white;
+    background-color: black;
+    text-decoration: none;
 }
+
+
+#homeIMG{
+   
+    max-height: 100%;  
+    max-width: 100%; 
+    width:13vw;
+    height: auto;
+    position: absolute;  
+    top: 0;  
+    bottom: 0;  
+    left: 0;  
+    right: 0;  
+    margin: auto;
+}
+
+#titlebig {
+    position:absolute;
+    color:white;
+    font-family: neuehaas;
+    font-size: 9.5vw;
+    width:100%;
+    height: 100%;
+    line-height: 100vh;
+    text-align: center;
+}
+
+.homeWrap{
+    color:white;
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    grid-template-rows:33vh 33vh 33vh;
+    
+}
+
+.quote{
+    width:100%;
+    height: 100%;
+    top:16vh;
+    line-height: 1.5vw;
+    display: flex;
+    justify-content:center;
+    align-content:center;
+    flex-direction:column;
+    text-align: center;
+    font-family: neuehaas;
+    font-size: 1.25vw;
+    text-decoration: none;
+}
+
+#bigTextVerb1 {
+    position:absolute;
+    color:white;
+    font-family: neuehaas;
+    font-size: 5vw;
+    width:100%;
+    height: 100%;
+    line-height: 100vh;
+    text-align: center;
+    display: none;  
+}
+
+#endtop{
+    position:absolute;
+    color:white;
+    font-family: neuehaas;
+    font-size: 1.25vw;
+    width: 40%;
+    left: 30%;
+    top:13%;
+    display:none;
+}
+
+#endbottom{
+    position:absolute;
+    color:white;
+    font-family: neuehaas;
+    font-size: 1.25vw;
+    width: 30%;
+    left: 35%;
+    bottom:13%;
+    display:none;
+}
+
+.infobits{
+    color:white;
+    font-family: neuehaas;
+    font-size: 0.75vw;
+    position:fixed;
+    top:13px;
+    
+}
+
+.downloadbits{
+    color:white;
+    font-family: neuehaas;
+    font-size: 0.75vw;
+    position:fixed;
+    bottom:13px;
+    display:none;
+    
+}
+
+#aboutProj{
+    right: 17px;
+    text-align: left;
+}
+
+#aboutMe{
+    right: 8.2vw;
+    text-align: right;
+}
+
+#contribute{
+    left: 6.5vw;
+    text-align: right;
+}
+
+#book{
+    left:17px;
+}
+
+#exhibition{
+    left:6.5vw;
+}
+
+#poster{
+    left:17px;
+}
+
+#digital{
+    right:17px;
+}
+
+.modal, .modal2, .modal3 {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, .5);
+        opacity: 0;
+        visibility: hidden;
+    }
+    .modal-content, .modal-content2, .modal-content3 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        padding: 0rem 1.5rem;
+        width: 55rem;
+        font-size: 20px;
+        color:black;
+        text-align: left;
+    }
+    .close-button, .close-button2, .close-button3{
+        float: right;
+        width: 1.5rem;
+        line-height: 3.5rem;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .show-modal {
+        opacity: 1;
+        visibility: visible;
+}
+
+ #aboutMe:hover, #aboutProj:hover, #contribute:hover, #book:hover {
+        cursor:help;
+        }
+
+#soon{
+    color:white;
+    padding-top: 13px;
+    font-family: neuehaas;
+    
+    
+}
+
+#email{
+    color:black;
+    background-color:white;
+    border-bottom: solid 1px black;
+}
+
+
+
+
+
+
+
+
+
+
 
 
